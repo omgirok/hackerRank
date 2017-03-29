@@ -1,0 +1,41 @@
+       """
+         Write a program that will read a list of numbers and a 
+         desired sum, then determine the subset of numbers in 
+         the list that yield that sum if such a subset exists.
+    1: """
+       
+    1: def sumSubset(arr, total):
+         # set flag for if a set has been found
+    6:   winner = False
+    6:   numbers = []
+       
+         # start looping through passed in array to check
+    6:   print "starting to loop through the array:", arr
+   17:   for index in range(len(arr)):  
+           # print "looking for values that match the sum:",total
+           # print "now checking value:",arr[index]
+   13:     if arr[index] == total:
+       
+    1:       winner = True
+       
+   13:     if arr[index] < total:
+    5:       temp = arr.pop(index)
+    5:       new_total = total - temp
+    5:       value = sumSubset(arr, new_total)
+       
+    5:       winner = value[0]
+    5:       numbers = value[1]
+    5:       arr.insert(index, temp)
+       
+   13:     if winner:
+    2:       numbers.append(arr[index])
+    2:       break
+       
+    6:   return [winner, numbers]
+       
+    1: print sumSubset([2,3,4,51], 7)
+       """
+       ([2,3,4,51],5)
+       ([2,4,51],4)
+       
+    1: """
