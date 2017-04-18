@@ -1,3 +1,4 @@
+import json
 # @trace
 def exponents(x, n):
   """
@@ -8,7 +9,6 @@ def exponents(x, n):
       >>> exponents(3, 2)
       9
   """
-  # print "now on call/stack frame: x: " + str(x) + ", n: " + str(n)
   if n == 0:
     # print "n = 0! returning 1..."
     return 1
